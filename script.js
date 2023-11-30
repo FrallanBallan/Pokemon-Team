@@ -127,12 +127,50 @@ PokedexData.forEach((pokemon) => {
   Height: ${pokemon.height}
   Weight: ${pokemon.weight}
   Type: ${pokemon.type}
-  `
+  `;
   pokemonLi.append(pokemonImg);
-  pokemonUl.append(pokemonLi)
-})
+  pokemonUl.append(pokemonLi);
+});
 
 // Skapa funktionalitet för att kunna filtrera pokemon baserat på deras typ (checkboxar).
+let typeCheckboxes = document.querySelectorAll("[name='type']");
+
+typeCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", () => {
+    pokemonUl.innerHTML = "";
+    constructPokemonList(filterByType());
+  });
+});
+
+const filterByType = () => {
+  let checkedTypes = document.querySelectorAll("[name='type']:checked");
+  let filteredTypes = PokedexData.filter((pokemon) => {
+    let typeMatches = false;
+    checkedTypes.forEach((box) => {
+      if (box.value === pokemon.type) {
+        typeMatches = true;
+      }
+    });
+    return typeMatches;
+  });
+  return filteredTypes;
+};
+
+const constructPokemonList = (array) => {
+  array.forEach((pokemon) => {
+    let pokemonLi = document.createElement("li");
+    let pokemonImg = document.createElement("img");
+    pokemonImg.setAttribute("src", pokemon.url);
+    pokemonLi.innerText = `
+  Name: ${pokemon.name}
+  Height: ${pokemon.height}
+  Weight: ${pokemon.weight}
+  Type: ${pokemon.type}
+  `;
+    pokemonLi.append(pokemonImg);
+    pokemonUl.append(pokemonLi);
+  });
+};
 
 // Skapa funktionalitet för att lägga till nya pokemon i ert data.
 
