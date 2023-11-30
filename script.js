@@ -117,32 +117,28 @@ const PokedexData = [
 // Visa ut samtliga pokemon och deras data på sidan.
 
 let pokemonUl = document.querySelector("#pokemonUl");
-
-
-// constructPokemonList(PokedexData);
-// PokedexData.forEach((pokemon) => {
-//   let pokemonLi = document.createElement("li");
-//   let pokemonImg = document.createElement("img");
-//   pokemonImg.setAttribute("src", pokemon.url);
-//   pokemonLi.innerText = `
-//   Name: ${pokemon.name}
-//   Height: ${pokemon.height}
-//   Weight: ${pokemon.weight}
-//   Type: ${pokemon.type}
-//   `;
-//   pokemonLi.append(pokemonImg);
-//   pokemonUl.append(pokemonLi);
-// });
-
-// Skapa funktionalitet för att kunna filtrera pokemon baserat på deras typ (checkboxar).
 let typeCheckboxes = document.querySelectorAll("[name='type']");
+let nameInput = document.querySelector("#name");
+let heightInput = document.querySelector("#height");
+let weightInput = document.querySelector("#weight");
+let typeInput = document.querySelector("#type");
 
-typeCheckboxes.forEach((checkbox) => {
-  checkbox.addEventListener("change", () => {
-    pokemonUl.innerHTML = "";
-    constructPokemonList(filterByType());
+const constructPokemonList = (array) => {
+  array.forEach((pokemon) => {
+    let pokemonLi = document.createElement("li");
+
+    let pokemonImg = document.createElement("img");
+    pokemonImg.setAttribute("src", pokemon.url);
+    pokemonLi.innerText = `
+    Name: ${pokemon.name}
+    Height: ${pokemon.height}
+    Weight: ${pokemon.weight}
+    Type: ${pokemon.type}
+    `;
+    pokemonLi.append(pokemonImg);
+    pokemonUl.append(pokemonLi);
   });
-});
+};
 
 const filterByType = () => {
   let checkedTypes = document.querySelectorAll("[name='type']:checked");
@@ -158,28 +154,25 @@ const filterByType = () => {
   return filteredTypes;
 };
 
-const constructPokemonList = (array) => {
-  array.forEach((pokemon) => {
-    let pokemonLi = document.createElement("li");
-    let pokemonImg = document.createElement("img");
-    pokemonImg.setAttribute("src", pokemon.url);
-    pokemonLi.innerText = `
-Name: ${pokemon.name}
-  Height: ${pokemon.height}
-  Weight: ${pokemon.weight}
-  Type: ${pokemon.type}
-  `;
-    pokemonLi.append(pokemonImg);
-    pokemonUl.append(pokemonLi);
+typeCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", () => {
+    pokemonUl.innerHTML = "";
+    constructPokemonList(filterByType());
   });
-};
+});
+
+document.querySelector("#sortByName").addEventListener("click", () => {
+  pokemonUl.innerHTML = "";
+  let sortByName = [];
+  if (document.querySelectorAll("[name='type']:checked").length > 0) {
+    sortByName = filterByType().sort((a, b) => a.name.localeCompare(b.name));
+  } else {
+    sortByName = PokedexData.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  constructPokemonList(sortByName);
+});
 
 // Skapa funktionalitet för att lägga till nya pokemon i ert data.
-let nameInput = document.querySelector("#name");
-let heightInput = document.querySelector("#height");
-let weightInput = document.querySelector("#weight");
-let typeInput = document.querySelector("#type");
-
 document.querySelector("#pokemon").addEventListener("click", () => {
   let newPokemon = {
     name: nameInput.value,
