@@ -1,68 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>HTML + CSS</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-
-</head>
-
   </head>
 
   <body>
-    <h1>Pokemon Application</h1>
-    <label for="name">Name</label>
-    <input type="text" id="name" />
-
-    <label for="height">Height</label>
-    <input type="text" id="height" />
-
-    <label for="weight">Weight</label>
-    <input type="text" id="weight" />
-
-
-<body>
     <div class="mainWrapper">
-        <div class="formDiv">
-            <h1>Pokemon application</h1>
-            <label for="name">Name</label>
-            <input type="text" id="name" />
-            <label for="height">Height</label>
-            <input type="text" id="height" />
-            <label for="weight">weight</label>
-            <input type="text" id="weight" />
-            <select name="type" id="type">
-                <option value="grass">Grass</option>
-                <option value="fire">Fire</option>
-                <option value="electric">Electric</option>
-                <option value="psychic">Psychic</option>
-                <option value="water">Water</option>
-                <option value="normal">Normal</option>
-            </select>
-            <button id="pokemon">Add Pokemon</button><br /><br />
-            <label for="grass">Grass</label>
-            <input type="checkbox" name="type" id="grass" value="grass" />
-            <label for="fire">Fire</label>
-            <input type="checkbox" name="type" id="fire" value="fire" />
-            <label for="electric">Electric</label>
-            <input type="checkbox" name="type" id="electric" value="electric" />
-            <label for="psychic">Psychic</label>
-            <input type="checkbox" name="type" id="psychic" value="psychic" />
-            <label for="water">Water</label>
-            <input type="checkbox" name="type" id="water" value="water" />
-            <label for="normal">Normal</label>
-            <input type="checkbox" name="type" id="normal" value="normal" />
+      <div class="formDiv">
+        <h1>Pokemon Application</h1>
+        <label for="name">Name</label>
+        <input type="text" id="name" />
+        <label for="height">Height</label>
+        <input type="text" id="height" />
+        <label for="weight">Weight</label>
+        <input type="text" id="weight" />
+        <select name="type" id="type">
+          <option value="grass">Grass</option>
+          <option value="fire">Fire</option>
+          <option value="electric">Electric</option>
+          <option value="psychic">Psychic</option>
+          <option value="water">Water</option>
+          <option value="normal">Normal</option>
+        </select>
+        <button id="pokemon">Add Pokemon</button><br /><br />
+        <label for="grass">Grass</label>
+        <input type="checkbox" name="type" id="grass" value="grass" />
+        <label for="fire">Fire</label>
+        <input type="checkbox" name="type" id="fire" value="fire" />
+        <label for="electric">Electric</label>
+        <input type="checkbox" name="type" id="electric" value="electric" />
+        <label for="psychic">Psychic</label>
+        <input type="checkbox" name="type" id="psychic" value="psychic" />
+        <label for="water">Water</label>
+        <input type="checkbox" name="type" id="water" value="water" />
+        <label for="normal">Normal</label>
+        <input type="checkbox" name="type" id="normal" value="normal" />
 
-            <button id="sortByName">Sort all your pokemons by their true name!</button>
-        </div>
-        <div class="ulDiv">
-            <ul id="pokemonUl"></ul>
-        </div>
+        <button id="sortByName">
+          Sort all your pokemons by their true name!
+        </button>
+      </div>
+      <div class="ulDiv">
+        <ul id="pokemonUl"></ul>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
