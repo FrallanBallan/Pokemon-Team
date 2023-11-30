@@ -116,6 +116,22 @@ const PokedexData = [
 
 // Visa ut samtliga pokemon och deras data på sidan.
 
+let pokemonUl = document.querySelector("#pokemonUl");
+
+PokedexData.forEach((pokemon) => {
+  let pokemonLi = document.createElement("li");
+  let pokemonImg = document.createElement("img");
+  pokemonImg.setAttribute("src", pokemon.url);
+  pokemonLi.innerText = `
+  Name: ${pokemon.name}
+  Height: ${pokemon.height}
+  Weight: ${pokemon.weight}
+  Type: ${pokemon.type}
+  `
+  pokemonLi.append(pokemonImg);
+  pokemonUl.append(pokemonLi)
+})
+
 // Skapa funktionalitet för att kunna filtrera pokemon baserat på deras typ (checkboxar).
 
 // Skapa funktionalitet för att lägga till nya pokemon i ert data.
