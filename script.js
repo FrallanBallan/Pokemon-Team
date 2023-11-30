@@ -118,19 +118,21 @@ const PokedexData = [
 
 let pokemonUl = document.querySelector("#pokemonUl");
 
-PokedexData.forEach((pokemon) => {
-  let pokemonLi = document.createElement("li");
-  let pokemonImg = document.createElement("img");
-  pokemonImg.setAttribute("src", pokemon.url);
-  pokemonLi.innerText = `
-  Name: ${pokemon.name}
-  Height: ${pokemon.height}
-  Weight: ${pokemon.weight}
-  Type: ${pokemon.type}
-  `;
-  pokemonLi.append(pokemonImg);
-  pokemonUl.append(pokemonLi);
-});
+
+// constructPokemonList(PokedexData);
+// PokedexData.forEach((pokemon) => {
+//   let pokemonLi = document.createElement("li");
+//   let pokemonImg = document.createElement("img");
+//   pokemonImg.setAttribute("src", pokemon.url);
+//   pokemonLi.innerText = `
+//   Name: ${pokemon.name}
+//   Height: ${pokemon.height}
+//   Weight: ${pokemon.weight}
+//   Type: ${pokemon.type}
+//   `;
+//   pokemonLi.append(pokemonImg);
+//   pokemonUl.append(pokemonLi);
+// });
 
 // Skapa funktionalitet för att kunna filtrera pokemon baserat på deras typ (checkboxar).
 let typeCheckboxes = document.querySelectorAll("[name='type']");
@@ -186,3 +188,4 @@ document.querySelector("#pokemon").addEventListener("click", ()=>{
 })
 
 // Extra: Testa att låta en person styla applikationen under tiden i egna branch under något utav momenten.
+constructPokemonList(PokedexData);
