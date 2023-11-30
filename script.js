@@ -173,5 +173,16 @@ const constructPokemonList = (array) => {
 };
 
 // Skapa funktionalitet för att lägga till nya pokemon i ert data.
+let nameInput=document.querySelector("#name");
+let heightInput=document.querySelector("#height");
+let weightInput=document.querySelector("#weight");
+let typeInput=document.querySelector("#type");
+
+document.querySelector("#pokemon").addEventListener("click", ()=>{
+  let newPokemon={name:nameInput.value, height:heightInput.value, weight:weightInput.value, type:typeInput.value, url:""};
+  PokedexData.push(newPokemon)
+  pokemonUl.innerHTML="";
+  constructPokemonList(PokedexData);
+})
 
 // Extra: Testa att låta en person styla applikationen under tiden i egna branch under något utav momenten.
